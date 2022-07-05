@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
+    private SpawnManager spawnManager;
     void Start()
     {
-       
-        
+        spawnManager = SpawnManager.Instante;
+        gameManager = GameManager.Instante;
     }
 
     // Update is called once per frame
@@ -16,17 +18,19 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(new Vector3(7f,7f,7f)* Time.deltaTime);
         OnTouchEvent();
     }
-    void OnTouchEvent()
+    public void OnTouchEvent()
     {
         Rect bounds = new Rect(0, Screen.width/2, Screen.width , Screen.height/2);
 
         if (Input.GetMouseButtonDown(0) && bounds.Contains(Input.mousePosition))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 8f);
+            gameManager.UpdateCargo();
+            spawnManager.SpawnCreates();
         }
         if (Input.GetMouseButtonUp(0))
         {
-            transform.position = new Vector3(0f, 0.75f, 7f);
+            transform.position = new Vector3(0f, 5.0f, 7f);
         }
     }
 }
