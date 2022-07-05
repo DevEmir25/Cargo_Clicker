@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GameManager gameManager;
-    private SpawnManager spawnManager;
+    public GameManager gameManager;
+    public SpawnManager spawnManager;
     void Start()
     {
-        spawnManager = SpawnManager.Instante;
-        gameManager = GameManager.Instante;
+
     }
 
     // Update is called once per frame
@@ -20,7 +19,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnTouchEvent()
     {
-        Rect bounds = new Rect(0, Screen.width/2, Screen.width , Screen.height/2);
+        Rect bounds = new Rect(0, Screen.width/2, Screen.width/2 , Screen.height/2);
 
         if (Input.GetMouseButtonDown(0) && bounds.Contains(Input.mousePosition))
         {

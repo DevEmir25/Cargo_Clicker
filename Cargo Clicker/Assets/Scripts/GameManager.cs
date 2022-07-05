@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instante;
     public TextMeshProUGUI cargoCountText;
     public TextMeshProUGUI cashText;
     public int cargoCount;
@@ -14,10 +13,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartGame();
-    }
-    private void Awake()
-    {
-        Instante = this;
     }
 
     // Update is called once per frame

@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager Instante;
-    public Transform[] spawnPointList;
+
     public GameObject createPrefabs;
-    private float spawnPosX = 2.5f;
-    private float yPosition;
-    public Transform SpawnPoint;
-    private void Awake()
-    {
-        Instante = this;
-    }
+    private float spawnPosX = 2.0f;
     void Start()
     {
 
@@ -27,20 +20,11 @@ public class SpawnManager : MonoBehaviour
     public Vector3 GenerateSpawnPosition()
     {
         float spawnPos = Random.Range(spawnPosX, -spawnPosX);
-        Vector3 randomPos = new Vector3(spawnPos , transform.position.y,11.0f);
+        Vector3 randomPos = new Vector3(spawnPos , transform.position.y + 1,28.0f);
         return randomPos;
     }
-    int point = 0;
     public void SpawnCreates()
     {
-
-        Vector3 posY = new Vector3(spawnPointList[point].position.x, spawnPointList[point].position.y + yPosition, spawnPointList[point].position.z);
-        Instantiate(createPrefabs, posY, Quaternion.identity);
-        point++;
-        if (point >= spawnPointList.Length)
-        {
-            yPosition += 0.3f;
-            point = 0; 
-        }
+        Instantiate(createPrefabs, GenerateSpawnPosition(), createPrefabs.transform.rotation);
     }
 }
