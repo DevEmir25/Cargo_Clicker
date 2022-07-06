@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Create
+  - HumanRoad
+  - MotorcyleRoad
+  - VehicleRoad
+  - ShipRoad
   layers:
   - Default
   - TransparentFX

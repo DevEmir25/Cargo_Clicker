@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
     public SpawnManager spawnManager;
+    
     void Start()
     {
+        
 
     }
 
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnTouchEvent()
     {
-        Rect bounds = new Rect(0, Screen.width/2, Screen.width/2 , Screen.height/2);
+        Rect bounds = new Rect(0, Screen.width/2, Screen.width , Screen.height/2);
 
         if (Input.GetMouseButtonDown(0) && bounds.Contains(Input.mousePosition))
         {
@@ -32,4 +35,5 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0f, 5.0f, 7f);
         }
     }
+    
 }

@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject createPrefabs;
+    public List<GameObject> Cargos = new List<GameObject>();
     private float spawnPosX = 2.0f;
     void Start()
     {
@@ -25,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnCreates()
     {
-        Instantiate(createPrefabs, GenerateSpawnPosition(), createPrefabs.transform.rotation);
+        GameObject _cargo=  Instantiate(createPrefabs, GenerateSpawnPosition(), createPrefabs.transform.rotation);
+        Cargos.Add(_cargo);
     }
 }
