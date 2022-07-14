@@ -7,10 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instante;
-    public TextMeshProUGUI cargoCountText;
-    public TextMeshProUGUI cashText;
-    public static int cargoCount;
-    public static int cash = 100;
+    public static int maxCargo = 5;
 
     private void Awake()
     {
@@ -18,25 +15,12 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        StartGame();
+
     }
 
     void Update()
     {
 
     }
-    public void UpdateCargo()
-    {
-        cargoCount++;
-        cargoCountText.text = "Cargo Count: " + cargoCount;
-    }
-    public void UpdateCash()
-    {
-        // When delivered a cargo cash have to increase which cargo has been delivered(the code goes here)
-        cashText.text = "Cash: " + cash;
-    }
-    public void StartGame()
-    {
-        UpdateCash();
-    }
+    
 }

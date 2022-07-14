@@ -6,14 +6,13 @@ using UnityEngine;
 public class WorkersAutoClicker : MonoBehaviour
 {
     public bool creatingCargo = false;
-    public static int cargoIncrease = 0;
-    public int internalIncrease;
-    public GameManager gameManager;
+    public static int cargoIncrease = 1;
+    public int InternalIncrease;
     public SpawnManager spawnManager;
    
     void Update()
     {
-        internalIncrease = cargoIncrease;
+        InternalIncrease = cargoIncrease;
         if (creatingCargo == false)
         {
             creatingCargo = true;
@@ -22,11 +21,13 @@ public class WorkersAutoClicker : MonoBehaviour
     }
     IEnumerator CreateTheCreate()
     {
-        GameManager.cargoCount += internalIncrease;
+        GlobalCargo.CargoCount += GlobalWorker.numberOfWorkers;
         yield return new WaitForSeconds(1);
-        gameManager.UpdateCargo();
-        spawnManager.SpawnCreates();
-
+        for (int i = 0; i < GlobalWorker.numberOfWorkers; i++)
+        {
+            spawnManager.SpawnCreates();
+        }
         creatingCargo = false;
     }
+
 }
